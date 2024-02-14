@@ -1,7 +1,7 @@
 function solution(l, r) {
     let arr = [];
     let result;
-    let regex = /^5([05]{1,6})?$/
+    let regex = /^[05]+$/
     
     for(let i=l; i<=r; i++){
         arr.push((i)) //.toString()
@@ -9,6 +9,5 @@ function solution(l, r) {
     result = arr.filter((num)=>{
         return regex.test(num)
     })
-    
     return result.length? result: [-1]
 }
