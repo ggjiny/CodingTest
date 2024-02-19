@@ -6,5 +6,5 @@ function solution(arr)
             result.push(arr[i])
         }
     }
-   return result
+   return result;
 }
