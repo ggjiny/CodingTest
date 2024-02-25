@@ -6,5 +6,6 @@ function solution(a, b) {
         sum += month[i];
     }
     sum += b;
-    return (sum%7)-1 < 0 ? day[day.length-1] : day[(sum%7)-1]
+//    return (sum%7)-1 < 0 ? day[day.length-1] : day[(sum%7)-1]
+    return day.at((sum%7)-1)
 }
