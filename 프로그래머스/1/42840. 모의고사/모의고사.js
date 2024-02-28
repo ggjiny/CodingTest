@@ -1,4 +1,5 @@
 function solution(answers) {
+    let p=[[1,2,3,4,5], [2,1,2,3,2,4,2,5],[3,3,1,1,2,2,4,4,5,5]]
     let p1 = [1,2,3,4,5]
     let p2 = [2,1,2,3,2,4,2,5]
     let p3 = [3,3,1,1,2,2,4,4,5,5]
@@ -7,9 +8,13 @@ function solution(answers) {
     let maxCount = 0;
     
     answers.forEach((num, i)=> {
-        p1[i%p1.length] === num ? count[0]++: null;
-        p2[i%p2.length] === num ? count[1]++: null;
-        p3[i%p3.length] === num ? count[2]++: null;
+        for(let j=0; j<3;j++){
+            p[j][i%p[j].length] === num ? count[j]++: null;
+        }
+        
+        // p1[i%p1.length] === num ? count[0]++: null;
+        // p2[i%p2.length] === num ? count[1]++: null;
+        // p3[i%p3.length] === num ? count[2]++: null;
     })
     maxCount = Math.max(...count);
     
