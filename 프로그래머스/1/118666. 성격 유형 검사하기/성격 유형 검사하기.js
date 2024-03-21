@@ -8,9 +8,5 @@ function solution(survey, choices) {
             type[survey[i][0]] += 4-choices[i]
         }
     }
-    result +=type['R'] >= type['T'] ? 'R':'T'
-    result +=type['C'] >= type['F'] ? 'C':'F'
-    result +=type['J'] >= type['M'] ? 'J':'M'
-    result +=type['A'] >= type['N'] ? 'A':'N'
-    return result
+    return `${type['R'] >= type['T'] ? 'R':'T'}${type['C'] >= type['F'] ? 'C':'F'}${type['J'] >= type['M'] ? 'J':'M'}${type['A'] >= type['N'] ? 'A':'N'}`
 }
