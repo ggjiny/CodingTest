@@ -5,11 +5,10 @@ function solution(n) {
     while(i <= n){
         if(num%i===0){
             num /= i
-            if(!answer.includes(i))
-                answer.push(i)
-            continue;
+            answer.push(i)
+        }else{
+            i++
         }
-        i++
     }
-    return answer;
+    return [...new Set(answer)];
 }
