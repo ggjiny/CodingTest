@@ -1,28 +1,10 @@
 function solution(N, stages) {
-    let arr = [];
-    let user = stages.length;
-    stages.sort((a,b)=>b-a);
-    for(let j=1; j<=N;j++){
-        let sum = 0;
-        for(let i=user-1; i>=0;i--){
-            if(stages[i]===j) {
-                sum++;
-                stages.pop()
-            }
-            else break;
-        }
-        arr.push(sum/user || 0);
-        user-=sum;
+    let result = [];
+    for(let i=1; i<=N; i++){
+        let reach = stages.filter((x) => x >= i).length;
+        let curr = stages.filter((x) => x === i).length;
+        result.push([i, curr/reach]);
     }
-    
-    let arr2 = [];
-    for(let i=0; i<arr.length;i++){
-        let obj = {};
-        obj.num = i+1;
-        obj.ratio = arr[i];
-        arr2.push(obj)
-    }
-    
-    arr2.sort((a,b)=>b.ratio==a.ratio?a.ratio-b.ratio : b.ratio-a.ratio)
-    return arr2.map((obj)=>obj.num)
+    result.sort((a,b) => b[1] - a[1]);
+    return result.map((x) => x[0]);
 }
